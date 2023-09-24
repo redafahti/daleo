@@ -1,7 +1,7 @@
 from fastapi import Depends, Security, APIRouter, File, UploadFile, Response
 from fastapi.responses import FileResponse
 from ..models import UserRead, User, UserUpdate
-from ..dependencies import oauth2_scheme, get_password_hash, get_current_active_user, get_user, update_user, delete_user, get_email_validation, create_email_validation, send_validation_email, update_email_validation, delete_email_validation, get_manager, get_player, get_coach, get_referee, delete_manager, delete_player, delete_coach, delete_referee
+from ..dependencies import oauth2_scheme, get_password_hash, get_current_active_user, get_current_user, get_user, update_user, delete_user, get_email_validation, create_email_validation, send_validation_email, update_email_validation, delete_email_validation, get_manager, get_player, get_coach, get_referee, delete_manager, delete_player, delete_coach, delete_referee
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -27,7 +27,7 @@ async def get_my_user_profile(current_user: User = Security(get_current_active_u
 
 # update my user profile
 @users_router.put("/user_update/me", response_model=UserRead)
-async def update_my_user_pofile(update: UserUpdate, current_user: User = Security(get_current_active_user, scopes=["users"])):
+async def update_my_user_pofile(update: UserUpdate, current_user: User = Security(get_current_user, scopes=["users"])):
     user = get_user(username=current_user.username)
     if update.password:
         hashed_password = get_password_hash(update.password)
@@ -38,8 +38,18 @@ async def update_my_user_pofile(update: UserUpdate, current_user: User = Securit
             new_validation = create_email_validation(user)
         new_validation = update_email_validation(existing_validation)
         send_validation_email(new_validation)
-    user_update = User(username=current_user.username, hashed_password=hashed_password, email=update.email, mobile=update.mobile, user_photo=update.user_photo,
-                       first_name=update.first_name, last_name=update.last_name, gender=update.gender, date_of_birth=update.date_of_birth)
+    user_update = User(username=current_user.username,
+                       hashed_password=hashed_password,
+                       email=update.email,
+                       mobile=update.mobile,
+                       user_photo=update.user_photo,
+                       first_name=update.first_name,
+                       last_name=update.last_name,
+                       gender=update.gender,
+                       date_of_birth=update.date_of_birth,
+                       FirebaseID=update.FirebaseID,
+                       ExpoPushToken=update.ExpoPushToken
+                       )
     return update_user(user, user_update)
 
 

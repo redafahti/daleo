@@ -1,0 +1,72 @@
+/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+export { ApiError } from './core/ApiError';
+export { CancelablePromise, CancelError } from './core/CancelablePromise';
+export { OpenAPI } from './core/OpenAPI';
+export type { OpenAPIConfig } from './core/OpenAPI';
+
+export type { Body_Login_login_for_access_token } from './models/Body_Login_login_for_access_token';
+export type { Body_Users_upload_my_photo } from './models/Body_Users_upload_my_photo';
+export type { CoachRead } from './models/CoachRead';
+export type { HTTPValidationError } from './models/HTTPValidationError';
+export type { ManagerRead } from './models/ManagerRead';
+export type { MatchPlayerLink } from './models/MatchPlayerLink';
+export type { MatchRead } from './models/MatchRead';
+export type { MatchTeamLink } from './models/MatchTeamLink';
+export type { PlayerAvailability } from './models/PlayerAvailability';
+export type { PlayerCoachRequest } from './models/PlayerCoachRequest';
+export type { PlayerMatchInvitation } from './models/PlayerMatchInvitation';
+export type { PlayerRead } from './models/PlayerRead';
+export type { PlayerTeamInvitation } from './models/PlayerTeamInvitation';
+export type { PlayerTeamRequest } from './models/PlayerTeamRequest';
+export type { RefereeRead } from './models/RefereeRead';
+export type { Stadium } from './models/Stadium';
+export type { StadiumCoachLink } from './models/StadiumCoachLink';
+export type { StadiumRead } from './models/StadiumRead';
+export type { StadiumRefereeLink } from './models/StadiumRefereeLink';
+export type { TeamCoachRequest } from './models/TeamCoachRequest';
+export type { TeamMatchInvitation } from './models/TeamMatchInvitation';
+export type { TeamMatchRequest } from './models/TeamMatchRequest';
+export type { TeamPlayerLink } from './models/TeamPlayerLink';
+export type { TeamRead } from './models/TeamRead';
+export type { Token } from './models/Token';
+export type { UserCreate } from './models/UserCreate';
+export type { UserRead } from './models/UserRead';
+export type { UserUpdate } from './models/UserUpdate';
+export type { ValidationError } from './models/ValidationError';
+
+export { CoachesService } from './services/CoachesService';
+export { CoachesAdminService } from './services/CoachesAdminService';
+export { EmailValidationService } from './services/EmailValidationService';
+export { LoginService } from './services/LoginService';
+export { ManagersService } from './services/ManagersService';
+export { ManagersAdminService } from './services/ManagersAdminService';
+export { MatchesService } from './services/MatchesService';
+export { MatchesAdminService } from './services/MatchesAdminService';
+export { MatchManagerService } from './services/MatchManagerService';
+export { MatchPlayersService } from './services/MatchPlayersService';
+export { MatchRefereeService } from './services/MatchRefereeService';
+export { MatchTeamsService } from './services/MatchTeamsService';
+export { PlayerCoachService } from './services/PlayerCoachService';
+export { PlayersService } from './services/PlayersService';
+export { PlayersAdminService } from './services/PlayersAdminService';
+export { RefereesService } from './services/RefereesService';
+export { RefereesAdminService } from './services/RefereesAdminService';
+export { RegisterService } from './services/RegisterService';
+export { RootService } from './services/RootService';
+export { StadiumCoachesService } from './services/StadiumCoachesService';
+export { StadiumMatchesService } from './services/StadiumMatchesService';
+export { StadiumPlayersService } from './services/StadiumPlayersService';
+export { StadiumRefereesService } from './services/StadiumRefereesService';
+export { StadiumsService } from './services/StadiumsService';
+export { StadiumsAdminService } from './services/StadiumsAdminService';
+export { StadiumTeamsService } from './services/StadiumTeamsService';
+export { SuperuserService } from './services/SuperuserService';
+export { TeamCoachService } from './services/TeamCoachService';
+export { TeamManagerService } from './services/TeamManagerService';
+export { TeamsService } from './services/TeamsService';
+export { TeamsAdminService } from './services/TeamsAdminService';
+export { UsersService } from './services/UsersService';
+export { UsersAdminService } from './services/UsersAdminService';

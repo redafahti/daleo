@@ -152,8 +152,17 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 @app.post("/new_user", response_model=UserRead, tags=["Register"])
 async def new_user(user: UserCreate):
     hashed_password = get_password_hash(user.password)
-    new_user = User(username=user.username, hashed_password=hashed_password, email=user.email,
-                    mobile=user.mobile, first_name=user.first_name, last_name=user.last_name, date_of_birth=user.date_of_birth, disabled=True)
+    new_user = User(username=user.username,
+                    hashed_password=hashed_password,
+                    email=user.email,
+                    mobile=user.mobile,
+                    user_photo=user.user_photo,
+                    first_name=user.first_name,
+                    last_name=user.last_name,
+                    date_of_birth=user.date_of_birth,
+                    FirebaseID=user.FirebaseID,
+                    ExpoPushToken=user.ExpoPushToken,
+                    disabled=True)
     user = create_user(new_user)
     validation = create_email_validation(user)
     send_validation_email(validation)

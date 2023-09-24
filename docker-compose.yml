@@ -46,8 +46,8 @@ services:
     restart: unless-stopped
 
   team-up-app:
-    container_name: daleo_backend
-    image: 'daleoapp:${TAG-latest}'
+    container_name: team_up_backend
+    image: 'marouanesanhaji/team-up-backend:${TAG-latest}'
     env_file:
       - .env
     build:
@@ -66,6 +66,20 @@ services:
       - "8000:8000"
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000
 
+  team-up-frontend:
+    container_name: team_up_frontend
+    image: node:alpine
+    build:
+      context: ./frontend
+      dockerfile: frontend.Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/frontend
+    networks:
+      - app-tier
+    ports:
+      - "5173:5173"
+    command: npm run dev
 
 volumes:
   backend:
